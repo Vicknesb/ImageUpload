@@ -1,7 +1,6 @@
 
 from pathlib import Path
 import os
-import toml
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,9 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ImageUpload.wsgi.application'
 
-# Load configuration from TOML file
-with open('config.toml', 'r') as f:
-    config = toml.load(f)
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -74,11 +70,11 @@ with open('config.toml', 'r') as f:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config['database']['name'],
-        'USER': config['database']['user'],
-        'PASSWORD': config['database']['password'],
-        'HOST': config['database']['host'],
-        'PORT': config['database']['port'],
+        'NAME': 'Testdb', 
+        'USER': 'postgres',
+        'PASSWORD': 'myadmin',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
 
