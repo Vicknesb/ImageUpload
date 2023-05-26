@@ -2,6 +2,8 @@
 from pathlib import Path
 import os
 
+from Configurations.config import Config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -64,17 +66,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ImageUpload.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+configObj =  Config()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Testdb', 
-        'USER': 'postgres',
-        'PASSWORD': 'myadmin',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        'NAME':  configObj.DATABASE_CONFIG['name'],
+        'USER': configObj.DATABASE_CONFIG['user'],
+        'PASSWORD': configObj.DATABASE_CONFIG['password'],
+        'HOST': configObj.DATABASE_CONFIG['host'],
+        'PORT': configObj.DATABASE_CONFIG['port'],
     }
 }
 

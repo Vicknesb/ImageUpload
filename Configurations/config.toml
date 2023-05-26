@@ -1,0 +1,16 @@
+[database]
+name = # your data
+user = # your user data
+password = # your user password
+host = # your host address
+port = # your host port
+
+[image_validation]
+image_size = 145728
+image_format = [".jpg", ".png",".jpeg"]
+image_size_error = "Please upload an image file smaller than 1MB."
+image_format_error = "Please upload a JPG or PNG image."
+image_empty_error = "Image not exists, please upload one image..!"
+image_x_axis = 1024
+image_y_axis = 1024
+image_base_number = 1
